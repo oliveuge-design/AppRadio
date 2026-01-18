@@ -198,10 +198,20 @@ function initializeApp() {
     audio.volume = volumeSlider.value / 100;
     audio.preload = 'none';
 
-    // Avvia automaticamente MarcoRadio all'apertura
-    setTimeout(() => {
+    // Gestisci Splash Screen e avvio MarcoRadio
+    const splashScreen = document.getElementById('splashScreen');
+    const startBtn = document.getElementById('startMarcoRadioBtn');
+
+    startBtn.addEventListener('click', () => {
+        // Nascondi splash screen
+        splashScreen.classList.add('hidden');
+        setTimeout(() => {
+            splashScreen.style.display = 'none';
+        }, 500);
+
+        // Avvia MarcoRadio
         playRadio(MY_RADIO);
-    }, 500);
+    });
 
     // Configurazione per streaming continuo
     audio.addEventListener('loadstart', () => {

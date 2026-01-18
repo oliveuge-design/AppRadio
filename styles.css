@@ -31,6 +31,94 @@ body {
     padding-bottom: 20px;
 }
 
+/* Splash Screen */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.5s ease;
+}
+
+.splash-content {
+    text-align: center;
+    padding: 40px;
+}
+
+.splash-title {
+    font-size: 72px;
+    font-weight: 900;
+    margin-bottom: 10px;
+    animation: bounceIn 0.8s ease;
+}
+
+.splash-subtitle {
+    font-size: 24px;
+    margin-bottom: 50px;
+    opacity: 0.9;
+}
+
+.start-button {
+    background: white;
+    color: #6c5ce7;
+    border: none;
+    padding: 20px 50px;
+    font-size: 24px;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.start-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.start-button:active {
+    transform: scale(0.95);
+}
+
+.splash-info {
+    margin-top: 20px;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.splash-screen.hidden {
+    animation: fadeOut 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; visibility: hidden; }
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
 /* Header */
 .app-header {
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
