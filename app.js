@@ -196,22 +196,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initializeApp() {
     audio.volume = volumeSlider.value / 100;
-    audio.preload = 'none';
+    audio.preload = 'metadata'; // Cambiato da 'none' per precaricare
 
-    // Gestisci Splash Screen e avvio MarcoRadio
+    // TRUCCO 1: Aggiungi attributo autoplay all'elemento audio
+    audio.setAttribute('autoplay', '');
+    audio.muted = false; // Assicurati che non sia muto
+
+    // Gestisci Splash Screen
     const splashScreen = document.getElementById('splashScreen');
     const startBtn = document.getElementById('startMarcoRadioBtn');
 
+    // TRUCCO 2: Prova autoplay immediato
+    attemptAutoplay();
+
+    // Fallback: se autoplay fallisce, mostra splash screen
     startBtn.addEventListener('click', () => {
-        // Nascondi splash screen
         splashScreen.classList.add('hidden');
         setTimeout(() => {
             splashScreen.style.display = 'none';
         }, 500);
-
-        // Avvia MarcoRadio
         playRadio(MY_RADIO);
     });
+
+    // TRUCCO 3: Cattura qualsiasi interazione utente per avviare
+    document.addEventListener('touchstart', handleFirstInteraction, { once: true });
+    document.addEventListener('click', handleFirstInteraction, { once: true });
 
     // Configurazione per streaming continuo
     audio.addEventListener('loadstart', () => {
@@ -1496,5 +1505,60 @@ function updateFlowModeUI() {
         metadataToggle.style.display = 'block';
     } else {
         metadataToggle.style.display = 'none';
+    }
+}
+
+// ===== FUNZIONI PER AUTOPLAY AUTOMATICO =====
+
+// Tenta autoplay immediato
+async function attemptAutoplay() {
+    console.log('🎵 Tentativo autoplay MarcoRadio...');
+
+    try {
+        // Imposta immediatamente MarcoRadio come radio corrente
+        currentRadio = MY_RADIO;
+        audio.src = MY_RADIO.url;
+
+        // Prova a far partire l'audio
+        const playPromise = audio.play();
+
+        if (playPromise !== undefined) {
+            await playPromise;
+            console.log('✅ Autoplay riuscito!');
+
+            // Nascondi splash screen se autoplay funziona
+            const splashScreen = document.getElementById('splashScreen');
+            splashScreen.classList.add('hidden');
+            setTimeout(() => {
+                splashScreen.style.display = 'none';
+            }, 500);
+
+            // Aggiorna UI
+            updatePlayerUI();
+            isPlaying = true;
+            playIcon.textContent = '⏸';
+            playingAnimation.classList.add('active');
+        }
+    } catch (error) {
+        console.log('⚠️ Autoplay bloccato dal browser:', error.message);
+        console.log('💡 Mostrando splash screen per interazione utente...');
+        // Splash screen rimane visibile come fallback
+    }
+}
+
+// Gestisce la prima interazione utente (tocco o click)
+function handleFirstInteraction() {
+    console.log('👆 Prima interazione utente rilevata');
+
+    const splashScreen = document.getElementById('splashScreen');
+
+    // Se splash screen è ancora visibile, avvia MarcoRadio
+    if (splashScreen && splashScreen.style.display !== 'none') {
+        splashScreen.classList.add('hidden');
+        setTimeout(() => {
+            splashScreen.style.display = 'none';
+        }, 500);
+
+        playRadio(MY_RADIO);
     }
 }
