@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="author" content="AlchemicaMente">
+    <meta name="description" content="MRP (MyRadioPerfect) - App radio intelligente con Flow Mode e auto-skip by AlchemicaMente">
+    <title>MRP - MyRadioPerfect</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>🎵 MRP - MyRadioPerfect</h1>
+            <div class="header-actions">
+                <button id="favoritesBtn" class="icon-btn" title="Preferiti">
+                    <span>⭐</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Player corrente -->
+        <div class="current-player">
+            <div class="album-art">
+                <img id="albumCover" src="default-cover.jpg" alt="Cover" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Crect fill=%22%231a1a2e%22 width=%22300%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22%3E🎵%3C/text%3E%3C/svg%3E'">
+                <div class="playing-animation" id="playingAnimation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="now-playing-info">
+                <h2 id="radioName">Seleziona una radio</h2>
+                <p id="songInfo">Premi play per iniziare</p>
+            </div>
+
+            <div class="player-controls">
+                <button id="playBtn" class="play-button">
+                    <span id="playIcon">▶</span>
+                </button>
+                <div class="volume-control">
+                    <span class="volume-icon">🔊</span>
+                    <input type="range" id="volumeSlider" min="0" max="100" value="70">
+                </div>
+                <button id="nextRadioBtn" class="next-radio-btn" title="Prossima radio suggerita" style="display: none;">
+                    <span>⏭️</span>
+                </button>
+            </div>
+
+            <!-- Like/Dislike controls -->
+            <div class="like-controls" id="likeControls" style="display: none;">
+                <button id="dislikeBtn" class="like-btn" title="Non mi piace">
+                    <span>👎</span>
+                    <small id="dislikeCount">0</small>
+                </button>
+                <div class="like-info">
+                    <span id="likePercentage">--</span>
+                </div>
+                <button id="likeBtn" class="like-btn" title="Mi piace">
+                    <span>👍</span>
+                    <small id="likeCount">0</small>
+                </button>
+            </div>
+        </div>
+
+        <!-- Genre Filter -->
+        <div class="genre-filter">
+            <div class="genre-header">
+                <span>🎭 Filtra per genere:</span>
+                <button id="clearGenreBtn" class="clear-genre-btn" style="display: none;">✕ Cancella</button>
+            </div>
+            <div class="genre-chips" id="genreChips">
+                <!-- Popolato da JavaScript -->
+            </div>
+
+            <!-- Metadata Mode Toggle -->
+            <div class="metadata-toggle" id="metadataToggle" style="display: none;">
+                <label class="toggle-label">
+                    <input type="checkbox" id="metadataCheckbox" checked>
+                    <span class="toggle-slider"></span>
+                    <span class="toggle-text">🎵 Auto-skip con riconoscimento metadati</span>
+                </label>
+                <small class="toggle-info">Quando attivo, skippa automaticamente se il brano non corrisponde al genere Flow</small>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" data-tab="my-radio">La Mia Radio</button>
+            <button class="tab" data-tab="popular">Radio Popolari</button>
+            <button class="tab" data-tab="favorites">Preferiti</button>
+        </div>
+
+        <!-- Contenuto tabs -->
+        <div class="tab-content">
+            <!-- La Mia Radio -->
+            <div id="my-radio" class="tab-panel active">
+                <div class="radio-list" id="myRadioList">
+                    <!-- Verrà popolata da JavaScript -->
+                </div>
+            </div>
+
+            <!-- Radio Popolari -->
+            <div id="popular" class="tab-panel">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="🔍 Cerca radio...">
+                </div>
+                <div class="radio-list" id="popularRadioList">
+                    <!-- Verrà popolata da JavaScript -->
+                </div>
+            </div>
+
+            <!-- Preferiti -->
+            <div id="favorites" class="tab-panel">
+                <div class="radio-list" id="favoritesRadioList">
+                    <div class="empty-state">
+                        <p>⭐ Nessun preferito ancora</p>
+                        <small>Aggiungi radio ai preferiti toccando la stella</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer con credits -->
+        <footer class="app-footer">
+            <p>
+                <strong>MRP - MyRadioPerfect</strong><br>
+                <small>By AlchemicaMente | Sviluppato con Claude Sonnet 4.5 | Gennaio 2026</small>
+            </p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

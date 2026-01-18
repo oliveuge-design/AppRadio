@@ -1,0 +1,123 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║           🎵 MRP - MyRadioPerfect                                ║
+║           By AlchemicaMente                                      ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+
+📦 COME METTERE L'APP ONLINE (2 MINUTI)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+PASSO 1: Vai su Netlify
+   👉 https://app.netlify.com/drop
+
+PASSO 2: Trascina questa cartella "deploy_clean"
+   Oppure trascina solo questi file:
+   - index.html
+   - app.js
+   - styles.css
+   - manifest.json
+
+PASSO 3: Aspetta 10 secondi
+
+PASSO 4: Ottieni il link!
+   Esempio: https://mrp-radio.netlify.app
+
+PASSO 5: Apri il link sul telefono
+   Funziona! 🎉
+
+
+📱 AGGIUNGI ALLA HOME DEL TELEFONO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+iPhone (Safari):
+   Share → Add to Home Screen
+
+Android (Chrome):
+   Menu (⋮) → Install app
+
+
+👥 CONDIVIDI CON ALTRI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Chiunque con il link può usare l'app!
+
+WhatsApp:
+   "Prova la mia app radio: [link]"
+
+Social:
+   "🎵 MRP - MyRadioPerfect by Prof. Eugenio
+   App radio con Flow Mode intelligente!
+   [link] #radio #app"
+
+
+🎨 PERSONALIZZA IL NOME (Opzionale)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Vai su https://app.netlify.com (crea account gratis)
+2. Trova il tuo sito
+3. Settings → Domain → Edit site name
+4. Scegli nome: "mrp-radio" o "myradioperfect"
+5. Nuovo link: https://mrp-radio.netlify.app
+
+
+✅ FILE PRONTI IN QUESTA CARTELLA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ index.html      - Pagina principale (MRP - MyRadioPerfect)
+✓ app.js          - Logica app (Flow Mode, anti-loop, priorità Italia)
+✓ styles.css      - Stili grafici
+✓ manifest.json   - Configurazione PWA (nome: MRP)
+✓ README.md       - Documentazione
+✓ QUESTO FILE     - Istruzioni deploy
+
+
+📊 FUNZIONALITÀ INCLUSE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Flow Mode intelligente (10 generi)
+✅ Auto-skip con riconoscimento metadati
+✅ Priorità radio italiane (+200 punti)
+✅ Anti-loop (max 5 errori consecutivi)
+✅ Sistema like/dislike
+✅ Radio preferite
+✅ 30.000+ radio online (Radio Browser API)
+✅ Nessuna ripetizione (ultime 10 radio memorizzate)
+
+
+🔧 SUPPORTO E AIUTO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Problemi?
+   Leggi: GUIDA_DEPLOY_E_CONDIVISIONE.md
+
+Bug o errori?
+   Controlla: FIX_LOOP_RADIO.md
+
+Come funziona Metadata Mode?
+   Leggi: METADATA_MODE_GUIDA.md
+
+
+💡 SUGGERIMENTI
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Dopo deploy, prova subito l'app sul telefono
+2. Testa Flow Mode con genere "Dance" o "Pop"
+3. Condividi con 2-3 amici per feedback
+4. Se tutto funziona, condividi pubblicamente!
+
+
+🎯 TUTTO PRONTO!
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Vai su: https://app.netlify.com/drop
+Trascina cartella → Ottieni link → Condividi!
+
+Buon deploy, AlchemicaMente! 🚀🎵
+
+
+═══════════════════════════════════════════════════════════════════
+ MRP - MyRadioPerfect | By AlchemicaMente | Gennaio 2026
+ Sviluppato con Claude Sonnet 4.5
+═══════════════════════════════════════════════════════════════════
