@@ -198,6 +198,11 @@ function initializeApp() {
     audio.volume = volumeSlider.value / 100;
     audio.preload = 'none';
 
+    // Avvia automaticamente MarcoRadio all'apertura
+    setTimeout(() => {
+        playRadio(MY_RADIO);
+    }, 500);
+
     // Configurazione per streaming continuo
     audio.addEventListener('loadstart', () => {
         console.log('Caricamento stream...');
